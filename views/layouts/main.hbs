@@ -1,0 +1,49 @@
+{{> head }}
+
+<body>
+  <header class="header transition">
+    <div class="wrap">
+      <div class="logo-mini"></div>
+      <ul class="header-info transition-06">
+        <li class="header-instagram">
+          <a class="transition" href="https://www.instagram.com/oorun_art" target="_blank">
+            <span class="transition">
+              <svg class="instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="30px" width="30px">
+                <path
+                  d="M16 3C8.832 3 3 8.832 3 16v18c0 7.168 5.832 13 13 13h18c7.168 0 13-5.832 13-13V16c0-7.168-5.832-13-13-13H16zm0 2h18c6.086 0 11 4.914 11 11v18c0 6.086-4.914 11-11 11H16C9.914 45 5 40.086 5 34V16C5 9.914 9.914 5 16 5zm21 6a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2zm-12 3c-6.063 0-11 4.937-11 11s4.937 11 11 11 11-4.937 11-11-4.937-11-11-11zm0 2c4.982 0 9 4.018 9 9s-4.018 9-9 9-9-4.018-9-9 4.018-9 9-9z"
+                  font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible" />
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="header-info-tel">
+          <a class="transition" href="tel:+380637011056">
+            <span class="transition">+38 (063) 701-10-56</span>
+          </a>
+        </li>
+      </ul>
+      <div class="toogle transition">
+        <span class="menu-line transition"></span>
+        <span class="menu-line transition"></span>
+        <span class="menu-line transition"></span>
+      </div>
+    </div>
+    <nav class="header-menu transition-06">
+      <ul>
+        <li><a class="transition" href="/about">Про нас</a></li>
+        <li><a class="transition" href="/products">Наші вироби</a></li>
+        <li><a class="transition" href="/reviews">Оплата та доставка</a></li>
+        <li><a class="transition" href="/contacts">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{{ body }}}
+    {{> contact-form }}
+  </main>
+
+  {{> footer }}
+</body>
+
+</html>
