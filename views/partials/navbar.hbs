@@ -1,0 +1,29 @@
+<nav class="header-menu transition-06">
+  <ul>
+
+    {{#if isHome }}
+      <li class="active"><a class="transition" href="/">Головна</a></li>
+    {{ else }}
+      <li><a class="transition" href="/">Головна</a></li>
+    {{/if}}
+
+    {{#if isAbout }}
+      <li class="active"><a class="transition active" href="/about">Про нас</a></li>
+    {{ else }}
+      <li><a class="transition" href="/about">Про нас</a></li>
+    {{/if}}
+
+    {{#if isProducts }}
+      <li class="active"><a class="transition active" href="/products">Наші вироби</a></li>
+    {{ else }}
+      <li><a class="transition" href="/products">Наші вироби</a></li>
+    {{/if}}
+
+    {{#if isDelivery }}
+      <li class="active"><a class="transition active" href="/delivery">Оплата та доставка</a></li>
+    {{ else }}
+      <li><a class="transition" href="/delivery">Оплата та доставка</a></li>
+    {{/if}}
+
+  </ul>
+</nav>

@@ -1,0 +1,26 @@
+<div class="products-item">
+  <div class="products-wrapper">
+    <div class="img">
+      <img class="product-img" src="{{ this.img }}" alt="{{ this.title }}" title="{{ this.title }}" />
+    </div>
+    <div class="info">
+      <h4>{{ this.title }}</h4>
+      <p class="price">{{ this.price }} <span>UAH</span></p>
+      <div class="buttons-wrapper">
+        <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="{{ this.id }}">
+          <button type="submit" class="button buy">
+            <div class="transition button-content">
+              купити
+            </div>
+          </button>
+        </form>
+        <a href="/products/{{ this.id }}" class="button show-product">
+          <div class="transition button-content">
+            детальніше
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

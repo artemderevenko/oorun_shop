@@ -1,0 +1,60 @@
+<section id="products">
+  <div class="product-detail">
+
+    <div class="product-name">
+      {{ product.title }}
+    </div>
+
+    {{#if product.imgList.length}}
+    <div class="img">
+      <div class="img-product">
+        <img id="main-image" src="{{ product.imgList.[0].img }}" alt="{{ product.imgList.[0].title }}"
+          title="{{ product.imgList.[0].title}}" />
+      </div>
+
+      <div class="img-list">
+        {{#each product.imgList}}
+        <div class="img-item transition {{#if @first}}active{{/if}}">
+          <div class="item-wrap">
+            <img src="{{ img }}" alt="{{ title }}" title="{{ title}}" data-src="{{ img }}" />
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+    </div>
+    {{/if}}
+
+    <div class="info">
+      <div class="price">{{ product.price }} <span>UAH</span></div>
+      <div class="text">
+        <p>
+          {{ product.description }}
+        </p>
+      </div>
+      <div class="property">
+        <span class="label">Кольори:</span>
+        {{#each product.colors}}
+        <span class="color {{ this }}"></span>
+        {{/each}}
+
+      </div>
+      <div class="property">
+        <span class="label">Розмір без лампи (д/ш/в), см:</span>{{ product.dimensions }}
+      </div>
+      <div class="property">
+        <span class="label">Вага:</span>{{ product.weight }}
+      </div>
+      <div class="buttons-wrapper">
+        <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="{{ product.id }}">
+          <button type="submit" class="button buy">
+            <div class="transition button-content">
+              купити
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
