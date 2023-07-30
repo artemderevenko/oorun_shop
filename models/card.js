@@ -8,6 +8,7 @@ const p = path.join(
 )
 
 class Card {
+
   static async add(product) {
     const card = await Card.fetch()
 
@@ -31,6 +32,29 @@ class Card {
           reject(err)
         } else {
           resolve()
+        }
+      })
+    })
+  } 
+
+  static async remove(id) {
+    const card = await Card.fetch()
+
+    const idx = card.products.findIndex(item => item.id === id)
+    const product = card.products[idx]
+    card.products = card.products.filter(item => item.id !== id)
+
+    if (product) {
+      card.priceTotal -= product.price * product.count 
+      card.countTotal -= product.count
+    } 
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(p, JSON.stringify(card), err => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(card)
         }
       })
     })

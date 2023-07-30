@@ -350,7 +350,7 @@ main {
 
 .header-slider {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -379,6 +379,10 @@ main {
     top: 50%;
     width: 400px;
     transform: translate(-50%, -80px);
+}
+
+.banner.mini {
+    display: none;
 }
 
 section {
@@ -507,13 +511,13 @@ section {
 }
 
 .all-products .button {
-    width: auto;  
+    width: auto;
     text-decoration: none;
 }
 
 .all-products .button,
 .all-products .button-content {
-    width: auto;  
+    width: auto;
     color: #54aa44;
 }
 
@@ -758,16 +762,6 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.product-detail .product-name {
-    font-size: 24px;
-    line-height: 30px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    color: #292929;
-    text-transform: uppercase;
-    margin-bottom: 40px;
 }
 
 .product-detail .price {
@@ -1067,7 +1061,224 @@ section {
     opacity: 1;
 }
 
+.card-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 130px 0;
+}
+
+#card-empty.hide,
+#card-table.hide {
+    display: none;
+}
+
+.card-empty-icon {
+    width: 120px;
+    height: auto;
+}
+
+.card-empty-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: #292929;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.card-empty-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #000000;
+    margin-top: 30px;
+}
+
+.card-empty .buttons-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header,
+.card-row {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d8d8da;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.card-row>div {
+    font-size: 15px;
+    line-height: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #000000;
+}
+
+.card-header>div {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: #292929;
+    font-weight: 700;
+}
+
+.card-header .name,
+.card-row .name {
+    width: 60%;
+    padding-right: 30px;
+}
+
+.card-header .count,
+.card-row .count,
+.card-header .price,
+.card-row .price {
+    width: 15%;
+}
+
+.card-header .options,
+.card-row .options {
+    width: 10%;
+}
+
+.total-info-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.total-info {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.total-info-row {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.total-info-row .label {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: #292929;
+    font-weight: 700;
+}
+
+.total-info-row .value {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: #292929;
+    font-weight: 700;
+}
+
+.card-wrapper .order,
+.card-wrapper .order form,
+.card-wrapper .order .button {
+    width: 100%;
+}
+
+.card-wrapper .order .button-content {
+    width: calc(100% - 6px);
+    height: 44px;
+}
+
+.card-wrapper .order .button:before {
+    width: 300px;
+    height: 300px;
+    left: 10px;
+    top: -120px;
+    transition: all .7s ease-in-out;
+}
+
+.card-wrapper .order .button:hover:before {
+    left: -300px;
+    top: -30px;
+}
+
+.card-wrapper .options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.card-wrapper .options .delete {
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card-wrapper .options .delete svg {
+    width: 20px;
+    height: auto
+}
+
+.card-wrapper .options .delete svg path {
+    fill: #ed8282;
+    transition: fill .3s ease-in-out;
+}
+
+.card-wrapper .options .delete:hover svg path {
+    fill: #ef1919;
+}
+
 @media (max-width: 1200px) {
+    .banner.mini {
+        display: flex;
+        width: 100%;
+    }
+
+    .banner.big {
+        display: none;
+    }
+
+    .header-slider {
+        align-items: flex-end;
+    }
+
+    .header-slider .logo-banner {
+        width: 70%;
+        max-width: 500px;
+        top: 35%;
+    }
+
     .header.scroll>.wrap {
         height: 60px;
     }
@@ -1217,7 +1428,7 @@ section {
         margin-right: 10px;
     }
 
-    .product-detail .product-name {
+    .title-section {
         padding: 0 30px;
     }
 }
@@ -1393,6 +1604,31 @@ section {
     .header.scroll .wrap {
         justify-content: flex-end;
     }
+    
+    .card-header > div,
+    .card-row > div {
+        font-size: 13px;
+    }
+
+    .card-header .name,
+    .card-row .name {
+        width: calc(100% - 200px);
+    }
+
+    .card-header .count,
+    .card-row .count {
+        width: 85px;
+    }
+
+    .card-header .price,
+    .card-row .price {
+        width: 75px;
+    }
+
+    .card-header .options,
+    .card-row .options {
+        width: 40px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1447,7 +1683,8 @@ section {
         flex-wrap: wrap;
     }
 
-    .buttons-wrapper .button {
+    .buttons-wrapper .button,
+    .buttons-wrapper form {
         width: 100%;
     }
 
@@ -1465,11 +1702,6 @@ section {
     .product-detail .img-item .item-wrap {
         width: 74px;
         height: 74px;
-    }
-
-    .product-detail .product-name {
-        font-size: 18px;
-        line-height: 24px;
     }
 
     .product-detail .price {

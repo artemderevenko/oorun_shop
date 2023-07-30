@@ -1,6 +1,8 @@
 <div class="header-slider">
     <div class="header-slider-info">
-        <img src="images/banner-2.png" class="banner" alt="OORUN - Декор ручної роботи з бетону"
+        <img src="images/banner-2.png" class="banner big" alt="OORUN - Декор ручної роботи з бетону"
+            title="Кашпо та горщики з бетону" />
+        <img src="images/banner-mini.png" class="banner mini" alt="OORUN - Декор ручної роботи з бетону"
             title="Кашпо та горщики з бетону" />
     </div>
     <img src="images/logo-banner.svg" class="logo-banner" />
@@ -37,7 +39,7 @@
         {{#if topProducts.length}}
             <h2 class="title-section">топ продажів</h2>
             {{#each topProducts}}
-                {{> product-card}}
+                {{> product-preview}}
             {{/each}}
         {{/if}}
 
