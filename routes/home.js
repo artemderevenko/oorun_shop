@@ -1,18 +1,20 @@
 const { Router } = require('express')
 const router = Router()
-const Card = require('../models/card')
 const Product = require('../models/product')
 
 router.get('/', async (req, res) => {
-  const products = await Product.getAll()
-  const card = await Card.fetch()
+  try {
+    const products = await Product.find()
 
-  res.render('home', {
-    title: 'Головна',
-    isHome: true, 
-    topProducts: products.filter(item => item.isTop),
-    countTotal: card.countTotal || 0
-  })
+    res.render('home', {
+      title: 'Головна',
+      isHome: true,
+      topProducts: products.filter(item => item.isTop),
+      countTotal: req.cartItems || 0
+    })
+  } catch (e) {
+    console.log(e)
+  }
 })
 
 module.exports = router

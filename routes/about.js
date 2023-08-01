@@ -1,15 +1,16 @@
 const { Router } = require('express')
-const Card = require('../models/card')
 const router = Router()
 
 router.get('/', async (req, res) => {
-  const card = await Card.fetch()
-
-  res.render('about', {
-    title: 'Про нас',
-    isAbout: true,
-    countTotal: card.countTotal || 0
-  })
+  try {
+    res.render('about', {
+      title: 'Про нас',
+      isAbout: true,
+      countTotal: req.cartItems || 0
+    })
+  } catch (e) {
+    console.log(e)
+  }
 })
 
 module.exports = router

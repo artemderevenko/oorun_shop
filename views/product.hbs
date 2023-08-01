@@ -30,10 +30,10 @@
         </p>
       </div>
       <div class="property">
-        <span class="label">Кольори:</span>
-        {{#each product.colors}}
-        <span class="color {{ this }}"></span>
-        {{/each}}
+        <span class="label">Кольор:</span>
+        {{#if product.color}}
+        <span class="color {{ product.color }}"></span>
+        {{/if}}
 
       </div>
       <div class="property">
@@ -43,8 +43,8 @@
         <span class="label">Вага:</span>{{ product.weight }}
       </div>
       <div class="buttons-wrapper">
-        <form action="/card/add" method="POST">
-          <input type="hidden" name="id" value="{{ product.id }}">
+        <form action="/cart/add" method="POST">
+          <input type="hidden" name="id" value="{{ product._id }}">
           <button type="submit" class="button buy">
             <div class="transition button-content">
               купити

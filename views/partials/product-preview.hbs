@@ -7,15 +7,15 @@
       <h4>{{ this.title }}</h4>
       <p class="price">{{ this.price }} <span>UAH</span></p>
       <div class="buttons-wrapper">
-        <form action="/card/add" method="POST">
-          <input type="hidden" name="id" value="{{ this.id }}">
+        <form action="/cart/add" method="POST">
+          <input type="hidden" name="id" value="{{ this._id }}">
           <button type="submit" class="button buy">
             <div class="transition button-content">
               купити
             </div>
           </button>
         </form>
-        <a href="/products/{{ this.id }}" class="button show-product">
+        <a href="/products/{{ this._id }}" class="button show-product">
           <div class="transition button-content">
             детальніше
           </div>
