@@ -109,4 +109,19 @@ $(document).ready(function () {
 	$('#close-notify').on('click', function () {
 		$('#notify').fadeOut(300)
 	});
+
+	const toDate = date => {
+		return Intl.DateTimeFormat('uk-UA', {
+			day: '2-digit',
+			month: 'long',
+			year: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit'
+		}).format(new Date(date))
+	}
+
+	$('.date-format').each(function() {
+		$(this).text(toDate($(this).text()));
+	});
 });

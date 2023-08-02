@@ -10,6 +10,7 @@ const deliveryRoutes = require('./routes/delivery')
 const productsRoutes = require('./routes/products')
 const cartRoutes = require('./routes/cart')
 const ordersRoutes = require('./routes/orders')
+const authRoutes = require('./routes/auth')
 const User = require('./models/user')
 const app = express()
 
@@ -50,6 +51,7 @@ app.use('/delivery', deliveryRoutes)
 app.use('/products', productsRoutes)
 app.use('/cart', cartRoutes)
 app.use('/orders', ordersRoutes)
+app.use('/auth', authRoutes)
 
 const PORT = process.env.PORT || 3000
 

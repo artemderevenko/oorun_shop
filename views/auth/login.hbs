@@ -1,0 +1,24 @@
+<section id="auth">
+  <div class="wrap">
+    <h2 class="title-section">Авторизація</h2>
+    <div class="form-wrapper">
+
+      <form class="form" action="/cart/add" method="POST">
+        <input name="email" id="email" type="email" placeholder="Електронна пошта" required>
+        <input name="password" id="password" type="password" placeholder="Пароль" required>
+        <button type="submit" class="button buy">
+          <div class="transition-06 button-content">
+            Авторизуватися
+          </div>
+        </button>
+      </form>
+
+      <div class="auth-redirect">
+        <div>Це ваш перший візит?</div>
+        <a href="/auth/register" class="auth-link transition">
+          Створіть обліковий запис.
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

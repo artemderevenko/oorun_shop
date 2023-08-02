@@ -6,51 +6,52 @@ small, strike, strong,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-margin: 0;
-padding: 0;
-border: 0;
-outline: 0;
-font-size: 100%;
-vertical-align: baseline;
-background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 body {
-line-height: 1;
-height: 100%;
+  line-height: 1;
+  height: 100%;
 }
 
 ol, ul {
-list-style: none;
+  list-style: none;
 }
 
 blockquote, q {
-quotes: none;
+  quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-content: '';
-content: none;
+  content: '';
+  content: none;
 }
 
 table {
-border-collapse: collapse;
-border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-footer, 
-nav, 
-header, 
-section, 
+footer,
+nav,
+header,
+section,
 aside,
 article {
   display: block;
 }
 
 
-input::-ms-clear { /* убираем крестики в инпутах, которые добавлеет ie10 */
-   display: none;
+input::-ms-clear {
+  /* убираем крестики в инпутах, которые добавлеет ie10 */
+  display: none;
 }
 
 input, input:hover, input:focus {
@@ -60,7 +61,8 @@ input, input:hover, input:focus {
 
 
 a {
-  outline: none !important; /* Убираем границу вокруг ссылок  */
+  outline: none !important;
+  /* Убираем границу вокруг ссылок  */
 }
 
 
@@ -68,15 +70,18 @@ a {
 Для этого задаем большую внутреннюю тень для полей с цветом равным цвету желаемого фона */
 
 input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #ffffff !important; /* Цвет фона */
-    -webkit-text-fill-color: #C1C0C0 !important; /* цвет текста */
-    color: #C1C0C0 !important; /* цвет текста */
+  -webkit-box-shadow: inset 0 0 0 50px #ffffff !important;
+  /* Цвет фона */
+  -webkit-text-fill-color: #C1C0C0 !important;
+  /* цвет текста */
+  color: #C1C0C0 !important;
+  /* цвет текста */
 }
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 button {
