@@ -247,7 +247,7 @@ input {
 }
 
 .user-wrapper {
-    width: 150px;
+    width: 120px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -256,7 +256,16 @@ input {
 .user-wrapper .user-icon {
     width: 27px;
     height: auto;
-    margin-right: 25px;
+}
+
+.user-wrapper .logout-icon {
+    width: 23px;
+    height: auto;
+    margin-top: 3px;
+}
+
+.user-wrapper .logout {
+    margin-left: 30px;
 }
 
 .user-wrapper .cart,
@@ -274,7 +283,8 @@ input {
 }
 
 .user-wrapper .cart-icon path,
-.user-wrapper .user-icon path  {
+.user-wrapper .user-icon path,
+.user-wrapper .logout-icon path  {
     fill: #000000;
     transition: fill .3s ease-in-out;
 }
@@ -303,7 +313,8 @@ input {
 }
 
 .header.scroll .cart-icon path,
-.header.scroll .user-icon path {
+.header.scroll .user-icon path,
+.header.scroll .logout-icon path {
     fill: #FFFFFF
 }
 
@@ -312,7 +323,8 @@ input {
 }
 
 .header .cart:hover .cart-icon path,
-.header .user:hover .user-icon path {
+.header .user:hover .user-icon path,
+.header .logout:hover .logout-icon path  {
     fill: #54aa44;
 }
 
@@ -1438,7 +1450,7 @@ section {
         width: 600px;
         margin-left: 0;
         left: auto;
-        right: 150px;
+        right: 140px;
     }
 
     .header-menu.scroll {
@@ -1606,6 +1618,10 @@ section {
         padding: 0 20px;
     }
 
+    .user-wrapper {
+        margin-right: 80px;
+    }
+
     .header .wrap {
         justify-content: space-between;
     }
@@ -1746,10 +1762,6 @@ section {
 
     .header-info.scroll {
         display: none;
-    }
-
-    .header .cart {
-        margin-right: 70px;
     }
 
     .header.scroll .wrap {
@@ -1950,7 +1962,7 @@ section {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .logo-mini {
         display: none !important;
     }

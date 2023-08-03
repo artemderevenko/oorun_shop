@@ -1,9 +1,9 @@
 const { Router } = require('express')
-const order = require('../models/order')
 const Order = require('../models/order')
+const auth = require('../middleware/auth')
 const router = Router()
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const orders = await Order
       .find({ 'user.userId': req.user._id })

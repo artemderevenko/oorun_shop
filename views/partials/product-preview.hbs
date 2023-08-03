@@ -7,6 +7,8 @@
       <h4>{{ this.title }}</h4>
       <p class="price">{{ this.price }} <span>UAH</span></p>
       <div class="buttons-wrapper">
+
+        {{#if @root.isAuth}}
         <form action="/cart/add" method="POST">
           <input type="hidden" name="id" value="{{ this._id }}">
           <button type="submit" class="button buy">
@@ -15,6 +17,14 @@
             </div>
           </button>
         </form>
+        {{ else }}
+        <a href="/auth/login" class="button buy">
+          <div class="transition button-content">
+            купити
+          </div>
+        </a>
+        {{/if}}
+
         <a href="/products/{{ this._id }}" class="button show-product">
           <div class="transition button-content">
             детальніше

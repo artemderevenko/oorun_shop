@@ -43,6 +43,8 @@
         <span class="label">Вага:</span>{{ product.weight }}
       </div>
       <div class="buttons-wrapper">
+
+        {{#if @root.isAuth}}
         <form action="/cart/add" method="POST">
           <input type="hidden" name="id" value="{{ product._id }}">
           <button type="submit" class="button buy">
@@ -51,6 +53,14 @@
             </div>
           </button>
         </form>
+        {{ else }}
+        <a href="/auth/login" class="button buy">
+          <div class="transition button-content">
+            купити
+          </div>
+        </a>
+        {{/if}}
+        
       </div>
     </div>
   </div>
