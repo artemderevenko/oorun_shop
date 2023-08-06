@@ -1,0 +1,7 @@
+module.exports = {
+  MONGODB_URI: 'mongodb+srv://oorun84:Schlesser84@oorun.4cq591q.mongodb.net/shop',
+  SESSION_SECRET: 'some code',
+  ELASTIC_API_KEY: 'A91C269058CA5CE67FD25C7814907D88E0DFC28F9DD1B42F5E9CA6ED81673F81C009E8B75FF7E3224CCAC2C47AD0DC5E',
+  EMAIL_FROM: 'oorun84@gmail.com',
+  BASE_URL: 'http://localhost:3000',
+}

@@ -284,7 +284,7 @@ input {
 
 .user-wrapper .cart-icon path,
 .user-wrapper .user-icon path,
-.user-wrapper .logout-icon path  {
+.user-wrapper .logout-icon path {
     fill: #000000;
     transition: fill .3s ease-in-out;
 }
@@ -324,7 +324,7 @@ input {
 
 .header .cart:hover .cart-icon path,
 .header .user:hover .user-icon path,
-.header .logout:hover .logout-icon path  {
+.header .logout:hover .logout-icon path {
     fill: #54aa44;
 }
 
@@ -1035,63 +1035,38 @@ section {
     font-weight: 700;
 }
 
-#notify {
+.notify {
+    display: flex;
     position: fixed;
-    top: 60px;
-    right: 0;
-    width: 100%;
+    width: auto;
+    top: 70px;
+    right: 30px;
     padding: 15px 30px;
     background-color: #54aa44;
     z-index: 999;
-    display: none;
     justify-content: flex-end;
+    animation: fadeInOut 4s ease-in-out forwards;
 }
 
-#notify p {
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+.notify.success {
+    background-color: #54aa44;
+}
+
+.notify.error {
+    background-color: #ff5d5d;
+}
+
+.notify p {
     color: #ffffff;
     font-size: 16px;
-    padding-right: 50px;
-}
-
-#notify .close {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-#notify .close:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background-color: #ffffff;
-    transform: rotate(45deg);
-    top: 50%;
-    opacity: 0.8;
-    transition: opacity .3s ease-in-out;
-}
-
-#notify .close:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background-color: #ffffff;
-    transform: rotate(-45deg);
-    top: 50%;
-    opacity: 0.8;
-    transition: opacity .3s ease-in-out;
-}
-
-#notify .close:hover:after,
-#notify .close:hover:before {
-    opacity: 1;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .cart-empty {
@@ -1408,7 +1383,7 @@ section {
     font-weight: 300;
 }
 
-.form-wrapper .auth-redirect > div {
+.form-wrapper .auth-redirect>div {
     width: 100%;
     text-align: center;
 }
@@ -1767,9 +1742,9 @@ section {
     .header.scroll .wrap {
         justify-content: flex-end;
     }
-    
-    .cart-header > div,
-    .cart-row > div {
+
+    .cart-header>div,
+    .cart-row>div {
         font-size: 13px;
     }
 
@@ -1946,8 +1921,8 @@ section {
         justify-content: flex-end;
     }
 
-    .cart-header > div,
-    .cart-row > div,
+    .cart-header>div,
+    .cart-row>div,
     .total-info-row .label,
     .total-info-row .value {
         font-size: 11px;

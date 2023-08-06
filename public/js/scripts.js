@@ -40,12 +40,16 @@ $(document).ready(function () {
 
 	$('#cart-table').on('click', '.cart-row .delete', function () {
 		const id = $(this).attr('data-id')
+		const csrf = $(this).attr('data-csrf')
 		const cartEmptyBlock = document.getElementById('cart-empty')
 		const cartTableBlock = document.getElementById('cart-table')
 		const cartCountBlock = document.getElementById('cart-count')
 
 		fetch('cart/remove/' + id, {
-			method: 'delete'
+			method: 'delete',
+			headers: {
+				'X-XSRF-TOKEN': csrf
+			},
 		}).then(res => res.json())
 			.then(cart => {
 				if (cart && cart.products && cart.products.length) {
@@ -85,6 +89,7 @@ $(document).ready(function () {
 									<div class="value">${ cart.priceTotal } UAH</div>
 								</div>
 								<form action="/orders" method="POST" class="buttons-wrapper order">
+									<input type="hidden" name="_csrf" value="${ cart.csrf }" />
 									<button type="submit" class="button buy">
 										<div class="transition button-content">
 											Оформити замовлення
@@ -104,10 +109,6 @@ $(document).ready(function () {
 					cartCountBlock.innerHTML = `(0)`
 				}
 			})
-	});
-
-	$('#close-notify').on('click', function () {
-		$('#notify').fadeOut(300)
 	});
 
 	const toDate = date => {

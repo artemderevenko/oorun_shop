@@ -4,6 +4,7 @@
     <form id="contact-form">
       <div class="wrapp-feedback">
         <!-- Hidden Required Fields -->
+        <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
         <input type="hidden" name="project_name" value="Oorun Studio">
         <input type="hidden" name="admin_email" value="oorun84@gmail.com">
         <input type="hidden" name="form_subject" value="Замовлення з сайту oorun">
@@ -42,7 +43,3 @@
     </div>
   </div>
 </section>
-<div id="notify">
-  <div id="close-notify" class="close"></div>
-  <p>Дякуємо, що написали нам. Ваше повідомлення отримано і найближчим часом ми зв'яжемося з Вами.</p>
-</div>

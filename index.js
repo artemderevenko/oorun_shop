@@ -5,6 +5,8 @@ const session = require('express-session')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const MongoStore = require('connect-mongodb-session')(session)
 const path = require('path')
+const csrf = require('csurf')
+const flash = require('connect-flash')
 const mongoose = require('mongoose');
 const homeRoutes = require('./routes/home')
 const aboutRoutes = require('./routes/about')
@@ -15,8 +17,7 @@ const ordersRoutes = require('./routes/orders')
 const authRoutes = require('./routes/auth')
 const varMiddleware = require('./middleware/variables')
 const userMiddleware = require('./middleware/user')
-
-const MONGODB_URI = "mongodb+srv://oorun84:Schlesser84@oorun.4cq591q.mongodb.net/shop"
+const keys = require('./keys')
 
 const app = express()
 
@@ -30,7 +31,7 @@ const hbs = exphbs.create({
 // Storing sessions in a MongoDB database
 const store = new MongoStore({
   collection: 'sessions',
-  uri: MONGODB_URI
+  uri: 'mongodb+srv://oorun84:Schlesser84@oorun.4cq591q.mongodb.net/shop'
 })
 
 app.engine('hbs', hbs.engine)
@@ -47,11 +48,17 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.use(session({
-  secret: 'some code',
+  secret: keys.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store
 }))
+
+// Provides protection against CSRF (cross-site request forgery) attacks
+app.use(csrf())
+
+// Provides a convenient way to pass temporary messages (such as notifications of success, error, etc.) between requests
+app.use(flash())
 
 app.use(varMiddleware)
 app.use(userMiddleware)
@@ -68,7 +75,7 @@ const PORT = process.env.PORT || 3000
 
 async function start() {
   try {
-    await mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+    await mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true })
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)

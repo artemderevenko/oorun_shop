@@ -67,7 +67,8 @@ router.delete('/remove/:id', auth, async (req, res) => {
       .json({
         products,
         priceTotal: calculatePrice(products) || 0,
-        countTotal: calculateCount(products) || 0
+        countTotal: calculateCount(products) || 0,
+        csrf: req.csrfToken()
       })
   } catch (e) {
     console.log(e)

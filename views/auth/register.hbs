@@ -4,7 +4,9 @@
     <div class="form-wrapper">
 
       <form class="form" action="/auth/register" method="POST">
+        <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
         <input name="email" id="email" type="email" placeholder="Електронна пошта" required>
+        <input name="name" id="name" type="text" placeholder="Ім'я" required>
         <input name="password" id="password" type="password" placeholder="Пароль" required>
         <input name="confirm" id="confirm" type="password" placeholder="Повтор пароля" required>
         <button type="submit" class="button buy">
@@ -23,3 +25,9 @@
     </div>
   </div>
 </section>
+
+{{#if error}}
+<div class="notify error">
+  <p>{{ error }}</p>
+</div>
+{{/if}}

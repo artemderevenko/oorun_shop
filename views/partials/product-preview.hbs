@@ -10,6 +10,7 @@
 
         {{#if @root.isAuth}}
         <form action="/cart/add" method="POST">
+          <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
           <input type="hidden" name="id" value="{{ this._id }}">
           <button type="submit" class="button buy">
             <div class="transition button-content">
