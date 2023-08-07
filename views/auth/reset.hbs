@@ -1,0 +1,28 @@
+<section>
+  <div class="wrap">
+    <h2 class="title-section">Забули пароль?</h2>
+    <div class="form-wrapper">
+      <form class="form" action="/auth/reset" method="POST">
+        <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
+        <input name="email" id="email" type="email" placeholder="Електронна пошта" required>
+        <button type="submit" class="button buy">
+          <div class="transition-06 button-content">
+            Відновити пароль
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{{#if error}}
+<div class="notify error">
+  <p>{{ error }}</p>
+</div>
+{{/if}}
+
+{{#if success}}
+<div class="notify success">
+  <p>{{ success }}</p>
+</div>
+{{/if}}

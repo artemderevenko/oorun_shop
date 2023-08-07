@@ -1,4 +1,4 @@
-<section id="auth">
+<section>
   <div class="wrap">
     <h2 class="title-section">Авторизація</h2>
     <div class="form-wrapper">
@@ -14,6 +14,12 @@
         </button>
       </form>
 
+      <div class="auth-redirect reset">
+        <a href="/auth/reset" class="auth-link transition">
+          Забули пароль?
+        </a>
+      </div>
+
       <div class="auth-redirect">
         <div>Це ваш перший візит?</div>
         <a href="/auth/register" class="auth-link transition">
@@ -27,5 +33,11 @@
 {{#if error}}
 <div class="notify error">
   <p>{{ error }}</p>
+</div>
+{{/if}}
+
+{{#if success}}
+<div class="notify success">
+  <p>{{ success }}</p>
 </div>
 {{/if}}

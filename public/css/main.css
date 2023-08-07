@@ -1375,12 +1375,16 @@ section {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 60px;
+    margin-top: 40px;
     font-size: 14px;
     line-height: 25px;
     font-family: 'Open Sans', sans-serif;
     color: #292929;
     font-weight: 300;
+}
+
+.auth-redirect.reset {
+    margin-top: 20px;
 }
 
 .form-wrapper .auth-redirect>div {
