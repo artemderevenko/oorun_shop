@@ -5,10 +5,10 @@
 
       <form class="form" action="/auth/register" method="POST">
         <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
-        <input name="email" id="email" type="email" placeholder="Електронна пошта" required>
-        <input name="name" id="name" type="text" placeholder="Ім'я" required>
-        <input name="password" id="password" type="password" placeholder="Пароль" required>
-        <input name="confirm" id="confirm" type="password" placeholder="Повтор пароля" required>
+        <input name="email" id="email" type="email" value="{{ data.email }}" placeholder="Електронна пошта" required>
+        <input name="name" id="name" type="text" value="{{ data.name }}" placeholder="Ім'я" required>
+        <input name="password" id="password" type="password" value="{{ data.password }}" placeholder="Пароль" required>
+        <input name="confirm" id="confirm" type="password" value="{{ data.confirm }}" placeholder="Повтор пароля" required>
         <button type="submit" class="button buy">
           <div class="transition-06 button-content">
             Зареєструватися
@@ -26,14 +26,8 @@
   </div>
 </section>
 
-{{#if error}}
+{{#if registerError}}
 <div class="notify error">
-  <p>{{ error }}</p>
-</div>
-{{/if}}
-
-{{#if success}}
-<div class="notify success">
-  <p>{{ success }}</p>
+  <p>{{ registerError }}</p>
 </div>
 {{/if}}

@@ -12,7 +12,9 @@ router.get('/', async (req, res) => {
       lamps: products.filter(item => item.type === 'lamp'),
       pots: products.filter(item => item.type === 'pot'),
       candles: products.filter(item => item.type === 'candle'),
-      countTotal: req.cartItems || 0
+      countTotal: req.cartItems || 0,
+      sendMessageError: req.flash('sendMessageError'),
+      success: req.flash('success'),
     })
   } catch (e) {
     console.log(e)
@@ -27,7 +29,9 @@ router.get('/:id', async (req, res) => {
       title: 'Опис товару',
       isProducts: true,
       product,
-      countTotal: req.cartItems || 0
+      countTotal: req.cartItems || 0,
+      sendMessageError: req.flash('sendMessageError'),
+      success: req.flash('success'),
     })
   } catch (e) {
     console.log(e)

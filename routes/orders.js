@@ -13,6 +13,8 @@ router.get('/', auth, async (req, res) => {
       title: 'Замовлення',
       isOrders: true,
       countTotal: req.cartItems || 0,
+      sendMessageError: req.flash('sendMessageError'),
+      success: req.flash('success'),
       orders: orders.map(order => ({
         ...order._doc,
         price: order.products.reduce((total, p) => {

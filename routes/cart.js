@@ -46,7 +46,9 @@ router.get('/', auth, async (req, res) => {
       isCart: true,
       products: products,
       priceTotal: calculatePrice(products) || 0,
-      countTotal: calculateCount(products) || 0
+      countTotal: calculateCount(products) || 0,
+      sendMessageError: req.flash('sendMessageError'),
+      success: req.flash('success'),
     })
   } catch (e) {
     console.log(e)

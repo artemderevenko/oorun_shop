@@ -2,6 +2,8 @@ const express = require('express')
 const Handlebars = require('handlebars')
 const exphbs = require('express-handlebars')
 const session = require('express-session')
+const helmet = require('helmet')
+const compression = require('compression')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const MongoStore = require('connect-mongodb-session')(session)
 const path = require('path')
@@ -15,8 +17,10 @@ const productsRoutes = require('./routes/products')
 const cartRoutes = require('./routes/cart')
 const ordersRoutes = require('./routes/orders')
 const authRoutes = require('./routes/auth')
+const contactRoutes = require('./routes/contact')
 const varMiddleware = require('./middleware/variables')
 const userMiddleware = require('./middleware/user')
+const errorHandler = require('./middleware/error')
 const keys = require('./keys')
 
 const app = express()
@@ -60,6 +64,19 @@ app.use(csrf())
 // Provides a convenient way to pass temporary messages (such as notifications of success, error, etc.) between requests
 app.use(flash())
 
+// Helmet helps secure Express apps by setting HTTP response headers
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        "script-src": ["'self'", 'code.jquery.com'],
+      },
+    },
+  })
+)
+
+app.use(compression())
+
 app.use(varMiddleware)
 app.use(userMiddleware)
 
@@ -70,6 +87,8 @@ app.use('/products', productsRoutes)
 app.use('/cart', cartRoutes)
 app.use('/orders', ordersRoutes)
 app.use('/auth', authRoutes)
+app.use('/send-message', contactRoutes)
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 3000
 

@@ -1,17 +1,12 @@
 <section id="contacts">
   <div class="wrap">
     <h2 class="title-section">Написати нам</h2>
-    <form id="contact-form">
+    <form id="contact-form" action="/send-message" method="POST">
       <div class="wrapp-feedback">
-        <!-- Hidden Required Fields -->
         <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
-        <input type="hidden" name="project_name" value="Oorun Studio">
-        <input type="hidden" name="admin_email" value="oorun84@gmail.com">
-        <input type="hidden" name="form_subject" value="Замовлення з сайту oorun">
-        <!-- END Hidden Required Fields -->
-        <input type="text" name="name" placeholder="Ім'я" required="">
-        <input type="email" name="email" value="" placeholder="Email" required="">
-        <textarea name="message" placeholder="Повідомлення" required=""></textarea>
+        <input type="text" name="name" placeholder="Ім'я" required>
+        <input type="email" name="email" value="" placeholder="Електронна пошта" required>
+        <textarea name="message" placeholder="Повідомлення" required></textarea>
         <div class="buttons-wrapper">
           <div class="button send">
             <button class="transition button-content" type="submit">
@@ -43,3 +38,10 @@
     </div>
   </div>
 </section>
+
+{{#if sendMessageError}}
+<div class="notify error">
+  <p>{{ sendMessageError }}</p>
+</div>
+{{/if}}
+

@@ -1401,6 +1401,27 @@ section {
     text-decoration: none;
 }
 
+.not-found .wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img-404 {
+    width: 100%;
+    height: auto;
+}
+
+.text-404 {
+    font-size: 18px;
+    line-height: 24px;
+    font-family: 'Open Sans', sans-serif;
+    color: #292929;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 @media (max-width: 1200px) {
     .banner.mini {
         display: flex;

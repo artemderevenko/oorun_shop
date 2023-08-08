@@ -5,8 +5,8 @@
 
       <form class="form" action="/auth/login" method="POST">
         <input type="hidden" name="_csrf" value="{{ @root.csrf }}" />
-        <input name="email" id="email" type="email" placeholder="Електронна пошта" required>
-        <input name="password" id="password" type="password" placeholder="Пароль" required>
+        <input name="email" id="email" type="email" placeholder="Електронна пошта" value="{{ data.email }}" required>
+        <input name="password" id="password" type="password" placeholder="Пароль" value="{{ data.password }}" required>
         <button type="submit" class="button buy">
           <div class="transition-06 button-content">
             Авторизуватися
@@ -30,14 +30,8 @@
   </div>
 </section>
 
-{{#if error}}
+{{#if loginError}}
 <div class="notify error">
-  <p>{{ error }}</p>
-</div>
-{{/if}}
-
-{{#if success}}
-<div class="notify success">
-  <p>{{ success }}</p>
+  <p>{{ loginError }}</p>
 </div>
 {{/if}}
