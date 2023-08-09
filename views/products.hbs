@@ -1,9 +1,9 @@
 <section id="products">
   <div class="products-list">
 
-    {{#if lamps.length}}
-      <h2 class="title-section">світильники</h2>
-      {{#each lamps}}
+    {{#if diffusers.length}}
+      <h2 class="title-section">аромадифузори</h2>
+      {{#each diffusers}}
         {{> product-preview}}
       {{/each}}
     {{/if}}
@@ -11,6 +11,13 @@
     {{#if pots.length}}
       <h2 class="title-section">кашпо для рослин</h2>
       {{#each pots}}
+        {{> product-preview}}
+      {{/each}}
+    {{/if}}
+
+    {{#if lamps.length}}
+      <h2 class="title-section">світильники</h2>
+      {{#each lamps}}
         {{> product-preview}}
       {{/each}}
     {{/if}}
