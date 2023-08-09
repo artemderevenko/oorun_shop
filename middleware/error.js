@@ -3,5 +3,6 @@ module.exports = function(req, res, next) {
     title: 'Сторінка не знайдена',
     sendMessageError: req.flash('sendMessageError'),
     success: req.flash('success'),
+    countTotal: req.cartItems || 0,
   })
 }
